@@ -55,6 +55,13 @@ nav a:focus {
   text-decoration: underline;
 }
 
+/* Active link style for default (blue) theme */
+body:not(.housing):not(.resources):not(.contact) nav a.active {
+  color: #d1e6ff;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 /* Main content */
 main {
   max-width: 900px;
@@ -188,6 +195,13 @@ body.housing nav a:focus {
   color: #a0d29e;
 }
 
+/* Housing active link */
+body.housing nav a.active {
+  color: #a0d29e;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 /* Resources page: soft purple hues */
 body.resources main {
   background-color: #f3e8ff;
@@ -208,6 +222,13 @@ body.resources nav a:focus {
   color: #b29de0;
 }
 
+/* Resources active link */
+body.resources nav a.active {
+  color: #b29de0;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 /* Contact page: warm orange highlights */
 body.contact main {
   background-color: #fff4e5;
@@ -226,4 +247,11 @@ body.contact nav a {
 body.contact nav a:hover,
 body.contact nav a:focus {
   color: #e4a760;
+}
+
+/* Contact active link */
+body.contact nav a.active {
+  color: #e4a760;
+  font-weight: 700;
+  text-decoration: underline;
 }
