@@ -1,17 +1,24 @@
-/* Base styles */
+/* Base styles with Google Fonts */
 body {
-  font-family: 'Georgia', serif;
+  font-family: 'Open Sans', Arial, sans-serif;
   line-height: 1.6;
-  color: #2c3e50; /* dark slate blue */
-  background-color: #e6f0fa; /* very light calming blue */
+  color: #2c3e50;
+  background-color: #e6f0fa;
   margin: 0;
   padding: 0 15px;
 }
 
+/* Headers using Merriweather */
+header h1,
+main h2 {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+}
+
 /* Header */
 header {
-  background-color: #4a90e2; /* calming medium blue */
-  color: #f0f8ff; /* AliceBlue, gentle off-white */
+  background-color: #4a90e2;
+  color: #f0f8ff;
   padding: 1.5rem 0;
   text-align: center;
   box-shadow: 0 2px 5px rgba(74, 144, 226, 0.3);
@@ -20,8 +27,6 @@ header {
 header h1 {
   margin: 0;
   font-size: 2.8rem;
-  font-weight: 700;
-  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
 }
 
 header p {
@@ -33,7 +38,6 @@ header p {
 
 /* Navigation */
 nav {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 600;
   font-size: 1.1rem;
 }
@@ -47,7 +51,7 @@ nav a {
 
 nav a:hover,
 nav a:focus {
-  color: #d1e6ff; /* lighter blue highlight */
+  color: #d1e6ff;
   text-decoration: underline;
 }
 
@@ -63,12 +67,11 @@ main {
   color: #34495e;
 }
 
-/* Paragraph spacing */
 main p {
   margin-bottom: 1.3rem;
 }
 
-/* Buttons and links */
+/* Buttons with animations */
 button,
 a.button,
 a[href="#"] {
@@ -79,16 +82,25 @@ a[href="#"] {
   border-radius: 6px;
   cursor: pointer;
   font-size: 1.1rem;
+  font-weight: 600;
   text-decoration: none;
   display: inline-block;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover,
 a.button:hover,
 a[href="#"]:hover {
   background-color: #357abd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(53, 122, 189, 0.4);
+}
+
+button:focus,
+a.button:focus,
+a[href="#"]:focus {
+  outline: 2px solid #357abd;
+  outline-offset: 2px;
 }
 
 /* Footer */
@@ -96,7 +108,6 @@ footer {
   text-align: center;
   margin: 2rem 0 1rem;
   color: #7f8c8d;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 0.9rem;
 }
 
@@ -135,7 +146,6 @@ footer {
   }
 }
 
-/* Smallest screens (phones) */
 @media (max-width: 480px) {
   header h1 {
     font-size: 1.6rem;
@@ -154,4 +164,66 @@ footer {
   main {
     padding: 1rem 1rem;
   }
+}
+
+/* PAGE SPECIFIC STYLES */
+
+/* Housing page: calm green tones */
+body.housing main {
+  background-color: #e9f7ef;
+  color: #2a5d34;
+  box-shadow: 0 4px 12px rgba(42, 93, 52, 0.2);
+}
+
+body.housing header {
+  background-color: #2a7a34;
+}
+
+body.housing nav a {
+  color: #d4f0d4;
+}
+
+body.housing nav a:hover,
+body.housing nav a:focus {
+  color: #a0d29e;
+}
+
+/* Resources page: soft purple hues */
+body.resources main {
+  background-color: #f3e8ff;
+  color: #5a2e82;
+  box-shadow: 0 4px 12px rgba(90, 46, 130, 0.2);
+}
+
+body.resources header {
+  background-color: #7e57c2;
+}
+
+body.resources nav a {
+  color: #d7c7f9;
+}
+
+body.resources nav a:hover,
+body.resources nav a:focus {
+  color: #b29de0;
+}
+
+/* Contact page: warm orange highlights */
+body.contact main {
+  background-color: #fff4e5;
+  color: #a35200;
+  box-shadow: 0 4px 12px rgba(163, 82, 0, 0.2);
+}
+
+body.contact header {
+  background-color: #e67e22;
+}
+
+body.contact nav a {
+  color: #ffd9b3;
+}
+
+body.contact nav a:hover,
+body.contact nav a:focus {
+  color: #e4a760;
 }
