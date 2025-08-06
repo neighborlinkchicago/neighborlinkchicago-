@@ -312,6 +312,6 @@ body.contact nav a.active {
 /* Responsive image adjustment */
 @media (max-width: 600px) {
   .banner-image {
-    height: 100px;
+    height: 140px;
   }
 }
