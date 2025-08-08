@@ -66,6 +66,7 @@ body:not(.housing):not(.resources):not(.contact):not(.about) nav a.active {
 main {
   max-width: 900px;
   margin: 2rem auto 4rem;
+  margin-top: 1rem; /* Added spacing below banner image */
   background-color: #ffffff;
   padding: 2.5rem 3rem;
   border-radius: 12px;
@@ -305,8 +306,12 @@ body.contact nav a.active {
   height: 100px; /* Controls the image size */
   object-fit: cover;
   display: block;
-  margin-bottom: -1rem;
+  margin-bottom: 0; /* Removed negative margin */
   border-bottom: 4px solid rgba(0, 0, 0, 0.1);
+
+  position: relative;
+  will-change: transform;
+  transition: transform 0.1s ease-out;
 }
 
 /* Responsive image adjustment */
@@ -315,10 +320,3 @@ body.contact nav a.active {
     height: 140px;
   }
 }
-
-.banner-image {
-  position: relative;
-  will-change: transform;
-  transition: transform 0.1s ease-out;
-}
-
