@@ -67,8 +67,7 @@ body:not(.housing):not(.resources):not(.contact):not(.about) nav a.active {
 /* Main content */
 main {
   max-width: 900px;
-  margin: 2rem auto 4rem;
-  margin-top: 1rem; /* spacing below banner image */
+  margin: 0 auto 4rem; /* removed margin-top to pull card closer to banner */
   background-color: #ffffff;
   padding: 2.5rem 3rem;
   border-radius: 12px;
@@ -314,7 +313,7 @@ body.contact nav a.active {
   object-fit: cover;
   object-position: top center; /* start from top center */
   display: block;
-  margin-bottom: 0; /* Removed negative margin */
+  margin-bottom: 0; /* no margin, card overlaps */
   border-bottom: 4px solid rgba(0, 0, 0, 0.1);
 
   position: relative; /* keep relative for stacking */
