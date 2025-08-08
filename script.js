@@ -13,14 +13,14 @@ document.addEventListener("DOMContentLoaded", function () {
     .then(html => {
       bannerContainer.innerHTML = html;
 
-      // Insert banner image dynamically
+      // Insert banner image dynamically inside #banner-placeholder
       const placeholder = document.getElementById("banner-placeholder");
       if (!placeholder) return;
 
       const img = document.createElement("img");
       img.className = "banner-image";
 
-      // Use bannerData from the page, fallback to default if missing
+      // Use window.bannerData from each page, fallback to default if missing
       const data = window.bannerData || {};
       img.src = data.src || "images/default.jpg";
       img.alt = data.alt || "Banner Image";
