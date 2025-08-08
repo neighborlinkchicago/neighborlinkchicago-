@@ -22,6 +22,8 @@ header {
   padding: 1.5rem 0;
   text-align: center;
   box-shadow: 0 2px 5px rgba(74, 144, 226, 0.3);
+  position: relative; /* ensure stacking context */
+  z-index: 20; /* on top of banner */
 }
 
 header h1 {
@@ -66,13 +68,16 @@ body:not(.housing):not(.resources):not(.contact):not(.about) nav a.active {
 main {
   max-width: 900px;
   margin: 2rem auto 4rem;
-  margin-top: 1rem; /* Added spacing below banner image */
+  margin-top: 1rem; /* spacing below banner image */
   background-color: #ffffff;
   padding: 2.5rem 3rem;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   font-size: 1.15rem;
   color: #34495e;
+
+  position: relative; /* create stacking context */
+  z-index: 30; /* higher than banner image and header */
 }
 
 main p {
@@ -117,6 +122,8 @@ footer {
   margin: 2rem 0 1rem;
   color: #7f8c8d;
   font-size: 0.9rem;
+  position: relative;
+  z-index: 10; /* footer above banner but below main */
 }
 
 /* Responsive Mobile Styles */
@@ -309,7 +316,8 @@ body.contact nav a.active {
   margin-bottom: 0; /* Removed negative margin */
   border-bottom: 4px solid rgba(0, 0, 0, 0.1);
 
-  position: relative;
+  position: relative; /* keep relative for parallax */
+  z-index: 5;         /* lower than main */
   will-change: transform;
   transition: transform 0.1s ease-out;
 }
