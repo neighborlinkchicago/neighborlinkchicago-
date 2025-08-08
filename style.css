@@ -315,3 +315,10 @@ body.contact nav a.active {
     height: 140px;
   }
 }
+
+.banner-image {
+  position: relative;
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
