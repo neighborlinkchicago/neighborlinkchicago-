@@ -1,106 +1,317 @@
-/* Global Styles */
+/* Base styles with Google Fonts */
 body {
-  margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', Arial, sans-serif;
   line-height: 1.6;
-  background-color: #f4f4f4;
-  color: #333;
+  color: #2c3e50;
+  background-color: #e6f0fa;
+  margin: 0;
+  padding: 0 15px;
+}
+
+/* Headers using Merriweather */
+header h1,
+main h2 {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
 }
 
 /* Header */
 header {
+  background-color: #4a90e2;
+  color: #f0f8ff;
+  padding: 1.5rem 0;
   text-align: center;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  padding: 1rem 0;
-  position: relative;
+  box-shadow: 0 2px 5px rgba(74, 144, 226, 0.3);
 }
 
 header h1 {
   margin: 0;
-  font-family: 'Merriweather', serif;
+  font-size: 2.8rem;
 }
 
 header p {
-  margin: 0.2rem 0 0;
+  margin: 0.5rem 0 1rem;
+  font-style: italic;
+  font-size: 1.3rem;
+  font-weight: 400;
 }
 
 /* Navigation */
 nav {
-  margin-top: 0.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 
 nav a {
-  color: #fff;
+  color: #f0f8ff;
   text-decoration: none;
-  padding: 0.3rem 0.6rem;
+  margin: 0 1rem;
+  transition: color 0.3s ease;
 }
 
 nav a:hover,
-nav a.active {
-  background-color: #ff6f61;
-  border-radius: 4px;
+nav a:focus {
+  color: #d1e6ff;
+  text-decoration: underline;
 }
 
-/* Banner Image */
-.banner-image {
-  width: 100%;
-  height: auto;
-  display: block;
+/* Active link style for default (blue) theme */
+body:not(.housing):not(.resources):not(.contact):not(.about) nav a.active {
+  color: #d1e6ff;
+  font-weight: 700;
+  text-decoration: underline;
 }
 
-/* Main Content */
+/* Main content */
 main {
-  padding: 1.5rem;
   max-width: 900px;
-  margin: auto;
+  margin: 2rem auto 4rem;
+  background-color: #ffffff;
+  padding: 2.5rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-size: 1.15rem;
+  color: #34495e;
 }
 
-main h2 {
-  color: #ff6f61;
+main p {
+  margin-bottom: 1.3rem;
 }
 
-/* Button */
-.button {
-  display: inline-block;
-  background-color: #ff6f61;
-  color: #fff;
-  padding: 0.6rem 1.2rem;
+/* Buttons with animations */
+button,
+a.button,
+a[href="#"] {
+  background-color: #4a90e2;
+  color: #f0f8ff;
+  padding: 0.65rem 1.4rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
   text-decoration: none;
-  border-radius: 4px;
-  margin-top: 1rem;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.button:hover {
-  background-color: #e65b50;
+button:hover,
+a.button:hover,
+a[href="#"]:hover {
+  background-color: #357abd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(53, 122, 189, 0.4);
+}
+
+button:focus,
+a.button:focus,
+a[href="#"]:focus {
+  outline: 2px solid #357abd;
+  outline-offset: 2px;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  background-color: #333;
-  color: #fff;
-  padding: 1rem;
-  margin-top: 1rem;
+  margin: 2rem 0 1rem;
+  color: #7f8c8d;
+  font-size: 0.9rem;
 }
 
-/* Page-specific backgrounds */
-body.home .banner-image {
-  content: url("images/home.jpg");
+/* Responsive Mobile Styles */
+@media (max-width: 768px) {
+  body {
+    padding: 0 10px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  nav {
+    font-size: 1rem;
+  }
+
+  nav a {
+    margin: 0 0.6rem;
+  }
+
+  main {
+    padding: 1.5rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  button,
+  a.button,
+  a[href="#"] {
+    font-size: 1rem;
+    padding: 0.5rem 1.2rem;
+  }
 }
 
-body.about .banner-image {
-  content: url("images/about.jpg");
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav a {
+    margin: 0.3rem 0.6rem;
+  }
+
+  main {
+    padding: 1rem 1rem;
+  }
 }
 
-body.resources .banner-image {
-  content: url("images/resources.jpg");
+/* PAGE SPECIFIC STYLES */
+
+/* Home page (default blue theme) */
+body:not(.housing):not(.resources):not(.contact):not(.about) main {
+  background-color: #ffffff;
+  color: #34495e;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-body.housing .banner-image {
-  content: url("images/housing.jpg");
+body:not(.housing):not(.resources):not(.contact):not(.about) header {
+  background-color: #4a90e2;
 }
 
-body.contact .banner-image {
-  content: url("images/contact.jpg");
+body:not(.housing):not(.resources):not(.contact):not(.about) nav a {
+  color: #f0f8ff;
+}
+
+body:not(.housing):not(.resources):not(.contact):not(.about) nav a:hover,
+body:not(.housing):not(.resources):not(.contact):not(.about) nav a:focus {
+  color: #d1e6ff;
+}
+
+/* About page: soft teal tones */
+body.about main {
+  background-color: #e0f7f5;
+  color: #216868;
+  box-shadow: 0 4px 12px rgba(33, 104, 104, 0.2);
+}
+
+body.about header {
+  background-color: #2a9d8f;
+}
+
+body.about nav a {
+  color: #b7e4e3;
+}
+
+body.about nav a:hover,
+body.about nav a:focus {
+  color: #6dd2ca;
+}
+
+body.about nav a.active {
+  color: #6dd2ca;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* Housing page: calm green tones */
+body.housing main {
+  background-color: #e9f7ef;
+  color: #2a5d34;
+  box-shadow: 0 4px 12px rgba(42, 93, 52, 0.2);
+}
+
+body.housing header {
+  background-color: #2a7a34;
+}
+
+body.housing nav a {
+  color: #d4f0d4;
+}
+
+body.housing nav a:hover,
+body.housing nav a:focus {
+  color: #a0d29e;
+}
+
+body.housing nav a.active {
+  color: #a0d29e;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* Resources page: soft purple hues */
+body.resources main {
+  background-color: #f3e8ff;
+  color: #5a2e82;
+  box-shadow: 0 4px 12px rgba(90, 46, 130, 0.2);
+}
+
+body.resources header {
+  background-color: #7e57c2;
+}
+
+body.resources nav a {
+  color: #d7c7f9;
+}
+
+body.resources nav a:hover,
+body.resources nav a:focus {
+  color: #b29de0;
+}
+
+body.resources nav a.active {
+  color: #b29de0;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* Contact page: warm orange highlights */
+body.contact main {
+  background-color: #fff4e5;
+  color: #a35200;
+  box-shadow: 0 4px 12px rgba(163, 82, 0, 0.2);
+}
+
+body.contact header {
+  background-color: #e67e22;
+}
+
+body.contact nav a {
+  color: #ffd9b3;
+}
+
+body.contact nav a:hover,
+body.contact nav a:focus {
+  color: #e4a760;
+}
+
+body.contact nav a.active {
+  color: #e4a760;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* Shared Banner Image for All Pages */
+.banner-image {
+  width: 100%;
+  height: 100px; /* Controls the image size */
+  object-fit: cover;
+  display: block;
+  margin-bottom: -1rem;
+  border-bottom: 4px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive image adjustment */
+@media (max-width: 600px) {
+  .banner-image {
+    height: 140px;
+  }
 }
