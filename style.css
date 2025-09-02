@@ -326,10 +326,16 @@ body.contact nav a.active {
 }
 
 /* Responsive image adjustment */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .banner-image {
-    height: 140px;
+    height: 300px;
     /* adjust initial shift on mobile */
-    transform: translateY(-70px);
+    transform: translateY(-50px);
+
+    @media (max-width: 480px) {
+  .banner-image {
+    height: 220px;
+    transform: translateY(-40px);
+    
   }
 }
