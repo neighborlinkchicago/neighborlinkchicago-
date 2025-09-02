@@ -43,7 +43,7 @@ function initParallax() {
 
     let scrollPosition = window.scrollY;
     let startShift = window.innerWidth <= 600 ? -70 : -50;
-    let shift = Math.min(scrollPosition * 0.5 + startShift, 0);
+    let shift = Math.min(scrollPosition * 0.3 + startShift, 100);
 
     banner.style.transform = `translateY(${shift}px)`;
   });
