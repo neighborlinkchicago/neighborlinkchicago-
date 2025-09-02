@@ -26,8 +26,11 @@ nav a {
 }
 
 nav a.active {
-  text-decoration: underline;
+  color: #27ae60;   /* or whatever highlight color you want */
+  font-weight: bold;
+  border-bottom: 2px solid #27ae60; /* optional underline effect */
 }
+
 
 main {
   max-width: 900px;
