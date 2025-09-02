@@ -316,7 +316,7 @@ body.contact nav a.active {
 .banner-image {
   width: 70%;           /* fill the container width */
   max-width: 900px;      /* match main content max-width */
-  height: 100%;          /* maintain aspect ratio */
+  height: 70%;          /* maintain aspect ratio */
   object-fit: cover;
   object-position: top center;
   border-radius: 12px;   /* optional, match main box rounding */
