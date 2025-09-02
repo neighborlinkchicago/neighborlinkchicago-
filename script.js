@@ -1,12 +1,12 @@
 console.log("NeighborLink site loaded.");
 
-// Define page-specific header and glow colors
+// Define static colors for each page
 const pageColors = {
-  "index.html":      { header: "#4a90e2", glow: "rgba(74,144,226,0.85)" }, // Home - blue
-  "about.html":      { header: "#2a9d8f", glow: "rgba(45,157,143,0.85)" }, // About - teal
-  "resources.html":  { header: "#7e57c2", glow: "rgba(126,87,194,0.85)" }, // Resources - purple
-  "housing.html":    { header: "#2a7a34", glow: "rgba(42,122,52,0.85)" },  // Housing - green
-  "contact.html":    { header: "#e67e22", glow: "rgba(230,126,34,0.85)" }, // Contact - orange
+  "index.html":      { header: "#4a90e2", activeLink: "#ffffff" }, // Home - blue
+  "about.html":      { header: "#2a9d8f", activeLink: "#ffffff" }, // About - teal
+  "resources.html":  { header: "#7e57c2", activeLink: "#ffffff" }, // Resources - purple
+  "housing.html":    { header: "#2a7a34", activeLink: "#ffffff" }, // Housing - green
+  "contact.html":    { header: "#e67e22", activeLink: "#ffffff" }, // Contact - orange
 };
 
 // Wait for DOM
@@ -30,36 +30,18 @@ document.addEventListener("DOMContentLoaded", function () {
           img.src = data.src || "images/default.jpg";
           img.alt = data.alt || "Banner Image";
           placeholder.appendChild(img);
-
-          // Initialize parallax
-          initParallax();
         }
 
-        // Highlight active nav link and set header color
+        // Apply static colors for header and active link
         applyPageColors();
       })
       .catch(error => console.error("Error loading banner:", error));
   } else {
-    // If no banner, still apply colors
     applyPageColors();
   }
 });
 
-// Parallax effect
-function initParallax() {
-  document.addEventListener("scroll", function () {
-    const banner = document.querySelector(".banner-image");
-    if (!banner) return;
-
-    let scrollPosition = window.scrollY;
-    let startShift = window.innerWidth <= 600 ? -40 : -30;
-    let shift = Math.min(scrollPosition * 0.4 + startShift, 0);
-
-    banner.style.transform = `translateY(${shift}px)`;
-  });
-}
-
-// Highlight active nav link and apply header/glow colors
+// Apply static colors
 function applyPageColors() {
   const currentPage = window.location.pathname.split("/").pop() || "index.html";
   const colors = pageColors[currentPage] || pageColors["index.html"];
@@ -68,23 +50,20 @@ function applyPageColors() {
   const header = document.querySelector("header");
   if (header) header.style.background = colors.header;
 
-  // Highlight active link and set glow color
+  // Highlight active nav link
   document.querySelectorAll("nav a").forEach(link => {
     if (link.getAttribute("href") === currentPage) {
       link.classList.add("active");
-      link.style.textShadow = `
-        0 0 6px ${colors.glow},
-        0 0 14px ${colors.glow},
-        0 0 26px ${colors.glow}
-      `;
-      link.style.boxShadow = `
-        0 0 0 2px ${colors.glow},
-        0 0 18px 2px ${colors.glow}
-      `;
+      link.style.color = colors.activeLink;
+      link.style.textShadow = "none"; // Remove glow
+      link.style.boxShadow = "none";   // Remove glow
+      link.style.background = "none";  // Remove pill effect if any
     } else {
       link.classList.remove("active");
+      link.style.color = "";           // reset color for inactive links
       link.style.textShadow = "";
       link.style.boxShadow = "";
+      link.style.background = "";
     }
   });
 }
