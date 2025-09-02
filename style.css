@@ -8,7 +8,7 @@ body {
 }
 
 header {
-  background: #27ae65;
+  background: #27ae60;
   color: white;
   padding: 1rem;
   text-align: center;
@@ -23,21 +23,33 @@ nav a {
   color: white;
   text-decoration: none;
   margin: 0 0.5rem;
+  padding: 0.15rem 0.4rem;     /* give room for the glow */
+  border-radius: 6px;          /* so the pill bg looks nice */
+  display: inline-block;       /* required so padding/bg apply cleanly */
+  transition: text-shadow 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
-/* Active page link highlight with full glow */
-nav a.active {
-  color: #27ae60;              /* green accent */
-  font-weight: bold;
-  text-shadow: 
-    0 0 5px #27ae60,
-    0 0 10px #27ae60,
-    0 0 20px #27ae60,
-    0 0 40px #27ae60; /* glowing aura */
+/* Active page link highlight with full glow (now visible on green header) */
+header nav a.active {
+  color: #ffffff;              /* keep text white so it pops on green header */
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.08); /* subtle pill behind text */
+  text-shadow:
+    0 0 6px rgba(39, 174, 96, 0.95),
+    0 0 14px rgba(39, 174, 96, 0.85),
+    0 0 26px rgba(39, 174, 96, 0.75);
+  box-shadow:
+    0 0 0 2px rgba(39, 174, 96, 0.25),
+    0 0 18px 2px rgba(39, 174, 96, 0.45);
 }
 
+/* Nice hover for all links (doesn't override active glow) */
+nav a:hover {
+  background: rgba(255, 255, 255, 0.12);
+  text-decoration: none;
+}
 
-
+/* Main card */
 main {
   max-width: 900px;
   margin: 0 auto;
@@ -47,7 +59,7 @@ main {
   border-radius: 6px;
 }
 
-/* ✅ Banner container */
+/* ✅ Banner container – same width as main */
 #banner-container {
   max-width: 900px;      /* match main */
   margin: 1rem auto;     /* space above/below */
@@ -73,4 +85,28 @@ footer {
   background: #f0f0f0;
   margin-top: 2rem;
   font-size: 0.9rem;
+}
+
+/* Reduce motion support */
+@media (prefers-reduced-motion: reduce) {
+  .banner-image {
+    transition: none;
+    transform: none;
+  }
+  nav a {
+    transition: none;
+  }
+}
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+  #banner-container {
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  #banner-container {
+    height: 180px;
+  }
 }
