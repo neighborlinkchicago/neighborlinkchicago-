@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       placeholder.appendChild(img);
 
-      // Initialize parallax effect
+      // Now initialize parallax effect
       initParallax();
     })
     .catch(error => {
@@ -35,15 +35,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Parallax scroll effect for banner images with initial upward offset
+// Parallax scroll effect for banner images with consistent height
 function initParallax() {
-  const banner = document.querySelector(".banner-image");
-  if (!banner) return;
-
   document.addEventListener("scroll", function () {
+    const banner = document.querySelector(".banner-image");
+    if (!banner) return;
+
     let scrollPosition = window.scrollY;
-    let startShift = window.innerWidth <= 480 ? -15 : window.innerWidth <= 768 ? -20 : -30;
-    let shift = startShift + scrollPosition * 0.25;
+    let startShift = window.innerWidth <= 600 ? -40 : -30;
+    let shift = Math.min(scrollPosition * 0.4 + startShift, 0);
+
     banner.style.transform = `translateY(${shift}px)`;
   });
 }
