@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       placeholder.appendChild(img);
 
-      // Now initialize parallax effect
+      // Initialize parallax effect
       initParallax();
     })
     .catch(error => {
@@ -37,14 +37,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Parallax scroll effect for banner images with initial upward offset
 function initParallax() {
+  const banner = document.querySelector(".banner-image");
+  if (!banner) return;
+
   document.addEventListener("scroll", function () {
-    const banner = document.querySelector(".banner-image");
-    if (!banner) return;
-
     let scrollPosition = window.scrollY;
-    let startShift = window.innerWidth <= 600 ? -70 : -50;
-    let shift = Math.min(scrollPosition * 0.3 + startShift, 100);
-
+    let startShift = window.innerWidth <= 480 ? -15 : window.innerWidth <= 768 ? -20 : -30;
+    let shift = startShift + scrollPosition * 0.25;
     banner.style.transform = `translateY(${shift}px)`;
   });
 }
