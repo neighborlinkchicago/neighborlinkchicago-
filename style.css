@@ -7,16 +7,9 @@ body {
   background: #fafafa;
 }
 
-/* Header */
 header {
-  background: #27ae60; /* default, overridden by JS per page */
-  color: white;
-  padding: 1.5rem 1rem; /* slightly more for glow space */
+  padding: 1rem;
   text-align: center;
-  position: relative;
-  z-index: 20;
-  border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 header h1 {
@@ -24,47 +17,30 @@ header h1 {
   font-family: 'Merriweather', serif;
 }
 
-/* Navigation */
-nav {
-  margin-top: 0.5rem;
-  overflow: visible; /* ensure glow is not clipped */
-}
-
+/* Navigation links */
 nav a {
   color: white;
   text-decoration: none;
   margin: 0 0.5rem;
-  padding: 0.15rem 0.4rem;     
-  border-radius: 6px;          
-  display: inline-block;       
-  transition: text-shadow 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  padding: 0.15rem 0.4rem;
+  border-radius: 6px;
+  display: inline-block;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
-/* Active nav link glow and pill background */
-nav a.active {
-  color: #ffffff;
+/* Active page link (solid color, no glow) */
+header nav a.active {
   font-weight: 700;
-  background: rgba(255, 255, 255, 0.08); 
-  text-shadow:
-    0 0 6px rgba(39, 174, 96, 0.95),
-    0 0 14px rgba(39, 174, 96, 0.85),
-    0 0 26px rgba(39, 174, 96, 0.75);
-  box-shadow:
-    0 0 0 2px rgba(39, 174, 96, 0.25),
-    0 0 18px 2px rgba(39, 174, 96, 0.45);
-}
-
-/* Hover for all nav links */
-nav a:hover {
-  background: rgba(255, 255, 255, 0.12);
-  text-decoration: none;
+  text-shadow: none;
+  box-shadow: none;
+  background: none;
 }
 
 /* Main card */
 main {
   max-width: 900px;
-  margin: 1rem auto 4rem;
-  padding: 2rem;
+  margin: 0 auto;
+  padding: 1.5rem;
   background: white;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   border-radius: 6px;
@@ -72,9 +48,9 @@ main {
 
 /* Banner container – same width as main */
 #banner-container {
-  max-width: 900px;      
-  margin: 1rem auto;     
-  height: 250px;         
+  max-width: 900px;
+  margin: 1rem auto;
+  height: 250px;
   overflow: hidden;
   position: relative;
   border-radius: 6px;
@@ -83,9 +59,9 @@ main {
 .banner-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;      
+  object-fit: cover;
   object-position: center;
-  transform: translateY(-30px);  
+  transform: translateY(-30px);
   transition: transform 0.1s ease-out;
   will-change: transform;
 }
@@ -97,7 +73,6 @@ footer {
   background: #f0f0f0;
   margin-top: 2rem;
   font-size: 0.9rem;
-  border-radius: 6px;
 }
 
 /* Reduce motion support */
@@ -116,22 +91,39 @@ footer {
   #banner-container {
     height: 220px;
   }
-  main {
-    padding: 1.5rem;
-  }
 }
 
 @media (max-width: 480px) {
   #banner-container {
     height: 180px;
   }
-  header h1 {
-    font-size: 1.6rem;
-  }
-  nav a {
-    margin: 0.3rem 0.5rem;
-  }
-  main {
-    padding: 1rem;
-  }
+}
+
+/* PAGE SPECIFIC HEADER COLORS */
+body.home header {
+  background: #4a90e2; /* Home - blue */
+}
+body.about header {
+  background: #2a9d8f; /* About - teal */
+}
+body.resources header {
+  background: #7e57c2; /* Resources - purple */
+}
+body.housing header {
+  background: #2a7a34; /* Housing - green */
+}
+body.contact header {
+  background: #e67e22; /* Contact - orange */
+}
+
+/* Active nav link color per page */
+body.home nav a.active { color: #ffffff; }
+body.about nav a.active { color: #ffffff; }
+body.resources nav a.active { color: #ffffff; }
+body.housing nav a.active { color: #ffffff; }
+body.contact nav a.active { color: #ffffff; }
+
+/* Optional hover for all links */
+nav a:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
