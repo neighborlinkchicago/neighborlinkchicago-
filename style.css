@@ -25,11 +25,17 @@ nav a {
   margin: 0 0.5rem;
 }
 
+/* Active page link highlight with full glow */
 nav a.active {
-  color: #27ae60;   /* or whatever highlight color you want */
+  color: #27ae60;              /* green accent */
   font-weight: bold;
-  border-bottom: 2px solid #27ae60; /* optional underline effect */
+  text-shadow: 
+    0 0 5px #27ae60,
+    0 0 10px #27ae60,
+    0 0 20px #27ae60,
+    0 0 40px #27ae60; /* glowing aura */
 }
+
 
 
 main {
