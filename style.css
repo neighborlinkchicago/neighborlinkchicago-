@@ -306,23 +306,24 @@ body.contact nav a.active {
   text-decoration: underline;
 }
 
-/* Shared Banner Image for All Pages */
+/* Banner Image aligned with main content width */
+#banner-container {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  margin-bottom: 1.5rem;  /* space between image and main text */
+}
+
 .banner-image {
-  width: 100%;
-  height: 100px; /* fixed visible container height */
+  width: 100%;           /* fill the container width */
+  max-width: 900px;      /* match main content max-width */
+  height: auto;          /* maintain aspect ratio */
   object-fit: cover;
-  object-position: top center; /* start from top center */
-  display: block;
-  margin-bottom: 0; /* no margin, card overlaps */
-  border-bottom: 4px solid rgba(0, 0, 0, 0.1);
-
-  position: relative; /* keep relative for stacking */
-  z-index: 5;         /* below main */
+  object-position: top center;
+  border-radius: 12px;   /* optional, match main box rounding */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   will-change: transform;
-  transition: transform 0.1s ease-out;
-
-  /* Start shifted UP by 50px so only small portion shows */
-  transform: translateY(-50px);
+  transition: transform 0.2s ease-out;
+  transform: translateY(-20px); /* small upward offset for parallax */
 }
 
 /* Responsive image adjustment */
