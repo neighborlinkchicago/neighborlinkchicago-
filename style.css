@@ -306,12 +306,13 @@ body.contact nav a.active {
   text-decoration: underline;
 }
 
-/* Banner Image aligned with main content width */
-#banner-container {
-  display: flex;
-  justify-content: center; /* center horizontally */
-  margin-bottom: 1.5rem;  /* space between image and main text */
+#banner-container,
+#banner-placeholder {
+  height: auto;       /* Let the container fit the image */
+  overflow: hidden;   /* Prevent extra space if image moves with parallax */
+  margin-bottom: 1.5rem; /* Optional spacing between image and main */
 }
+
 
 .banner-image {
   width: 70%;           /* fill the container width */
