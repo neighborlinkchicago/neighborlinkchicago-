@@ -315,17 +315,14 @@ body.contact nav a.active {
 
 
 .banner-image {
-  width: 70%;           /* fill the container width */
-  max-width: 900px;      /* match main content max-width */
-  height: 70%;          /* maintain aspect ratio */
-  object-fit: cover;
-  object-position: top center;
-  border-radius: 12px;   /* optional, match main box rounding */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  will-change: transform;
-  transition: transform 0.2s ease-out;
-  transform: translateY(-20px); /* small upward offset for parallax */
+  width: 100%;
+  height: auto;          /* maintain aspect ratio */
+  display: block;
+  margin-bottom: 0;
+  object-fit: cover;     /* fills container nicely */
+  transform: translateY(-50px);
 }
+
 
 /* Responsive image adjustment */
 @media (max-width: 768px) {
