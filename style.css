@@ -314,7 +314,7 @@ body.contact nav a.active {
 }
 
 .banner-image {
-  width: 100%;           /* fill the container width */
+  width: 40%;           /* fill the container width */
   max-width: 900px;      /* match main content max-width */
   height: auto;          /* maintain aspect ratio */
   object-fit: cover;
